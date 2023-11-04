@@ -50,7 +50,7 @@
 - [x] repository
 4. service
    1. Create
-   - [ ] customer 추가
+   - [x] customer 추가
    - [ ] item 추가
    - [ ] order 추가
    2. Read
