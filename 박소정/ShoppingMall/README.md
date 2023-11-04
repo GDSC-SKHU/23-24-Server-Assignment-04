@@ -43,8 +43,8 @@
 1. 
 - [x] dto 
 2. domain
-- [x] Customer(아직 Order와 join 안 함)
-- [ ] Item
+- [x] Customer(Order와 join 전)
+- [x] Item(Order와 join 전)
 - [ ] Order
 3.
 - [ ] repository
