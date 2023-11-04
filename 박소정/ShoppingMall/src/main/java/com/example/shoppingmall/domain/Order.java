@@ -57,7 +57,7 @@ public class Order {
         return Collections.unmodifiableList(customers); // unmodifiableList: 추가, 삭제행위 금지, 불변 뷰로 감싸서 반환
     }
 
-    public List<Customer> getItems() {
-        return Collections.unmodifiableList(customers);
+    public List<Item> getItems() {
+        return Collections.unmodifiableList(items);
     }
 }
