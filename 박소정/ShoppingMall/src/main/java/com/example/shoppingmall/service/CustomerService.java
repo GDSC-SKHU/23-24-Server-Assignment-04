@@ -27,4 +27,14 @@ public class CustomerService {
                 .address(customerDto.getAddress())
                 .build();
     }
+
+    // READ
+    public CustomerDto findCustomerByNameAsDto(String customername) {
+        return findCustomerByName(customername).toDto();
+    }
+    
+    private Customer findCustomerByName(String customername) {
+        return customerRepository.findCustomerByName(customername)
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 고객 이름입니다."));
+    }
 }
