@@ -1,4 +1,4 @@
-# [상품 주문 API] 구현할 기능
+# [상품 주문 API]
 
 ## Domain 설계
 1. 고객(customer)
@@ -22,19 +22,50 @@
 
 ## API 설계(CRUD)
 1. Create
-- [ ] customer 추가 API
-- [ ] item 추가 API
-- [ ] order 추가 API
+- customer 추가 API
+- item 추가 API
+- order 추가 API
 2. Read
-- [ ] customer 조회 API
-- [ ] item 조회 API
-- [ ] order 조회 API
+- customer 조회 API
+- item 조회 API
+- order 조회 API
 3. Update
-- [ ] customer 수정 API
-- [ ] item 수정 API
-- [ ] order 수정 API
+- customer 수정 API
+- item 수정 API
+- order 수정 API
 4. Delete
-- [ ] customer 삭제 API
-- [ ] item 삭제 API
-- [ ] order 삭제 API
+- customer 삭제 API
+- item 삭제 API
+- order 삭제 API
 
+
+## 구현할 기능 목록
+1. 
+- [x] dto 
+2. domain
+- [ ] Customer
+- [ ] Item
+- [ ] Order
+3.
+- [ ] repository
+4. service
+   1. Create
+   - [ ] customer 추가
+   - [ ] item 추가
+   - [ ] order 추가
+   2. Read
+   - [ ] customer 조회
+   - [ ] item 조회
+   - [ ] order 조회
+   3. Update
+   - [ ] customer 수정
+   - [ ] item 수정
+   - [ ] order 수정
+   4. Delete
+   - [ ] customer 삭제
+   - [ ] item 삭제
+   - [ ] order 삭제
+5. controller
+- [ ] CustomerController
+- [ ] ItemController
+- [ ] OrderController
