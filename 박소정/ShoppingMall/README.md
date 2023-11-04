@@ -43,9 +43,9 @@
 1. 
 - [x] dto 
 2. domain
-- [x] Customer(Order와 join 전)
-- [x] Item(Order와 join 전)
-- [ ] Order
+- [x] Customer
+- [x] Item
+- [x] Order
 3.
 - [ ] repository
 4. service
