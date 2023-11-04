@@ -43,7 +43,7 @@
 1. 
 - [x] dto 
 2. domain
-- [ ] Customer
+- [x] Customer(아직 Order와 join 안 함)
 - [ ] Item
 - [ ] Order
 3.
