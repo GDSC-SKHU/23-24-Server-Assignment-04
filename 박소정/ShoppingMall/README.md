@@ -47,7 +47,7 @@
 - [x] Item
 - [x] Order
 3.
-- [ ] repository
+- [x] repository
 4. service
    1. Create
    - [ ] customer 추가
