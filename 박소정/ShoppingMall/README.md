@@ -52,7 +52,7 @@
    1. Create
    - [x] customer 추가
    - [x] item 추가
-   - [ ] order 추가
+   - [x] order 추가
    2. Read
    - [x] customer 조회
    - [x] item 조회
