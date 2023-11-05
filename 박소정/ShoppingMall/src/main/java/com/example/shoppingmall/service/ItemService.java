@@ -1,6 +1,5 @@
 package com.example.shoppingmall.service;
 
-import com.example.shoppingmall.domain.Customer;
 import com.example.shoppingmall.domain.Item;
 import com.example.shoppingmall.dto.ItemDto;
 import com.example.shoppingmall.repository.ItemRepository;
@@ -25,5 +24,14 @@ public class ItemService {
                 .name(itemDto.getName())
                 .cost(itemDto.getCost())
                 .build();
+    }
+
+    public ItemDto findItemByNameAsDto(String itemname) {
+        return findItemByName(itemname).toDto();
+    }
+
+    private Item findItemByName(String itemname) {
+        return itemRepository.findItemByName(itemname)
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 상품명입니다."));
     }
 }

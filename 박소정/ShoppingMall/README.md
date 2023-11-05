@@ -55,7 +55,7 @@
    - [ ] order 추가
    2. Read
    - [x] customer 조회
-   - [ ] item 조회
+   - [x] item 조회
    - [ ] order 조회
    3. Update
    - [x] customer 수정
