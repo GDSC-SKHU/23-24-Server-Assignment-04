@@ -8,10 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -26,24 +23,25 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Integer id;
 
-    @OneToMany // 중간 테이블 생성X, @OneToMany의 프록시(객체를 DB에서 조회할 때, 연관관계의 엔티티 정보를 끌어오는 쿼리 발생 시점) 옵션 기본값은 Lazy Fetch
-    @JoinColumn(name = "ORDER_CUSTOMERS")
-    private List<Customer> customers = new ArrayList<>();
+    @OneToOne // @OneToMany 어노테이션은 일반적으로 컬렉션 타입 (예: List, Set, Map 등)과 함께 사용되어야 하므로 onetoone으로 변경
+    @JoinColumn(name = "ORDER_CUSTOMER", nullable = false)
+    private Customer customer;
 
-    @OneToMany
-    @JoinColumn(name = "ORDER_ITEMS")
-    private List<Item> items = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "ORDER_ITEM", nullable = false)
+    private Item item;
 
     @Column(name = "ORDER_COUNT", nullable = false)
     private Integer count;
 
     public OrderDto toDto() {
-        List<CustomerDto> customerDtos = customers.stream().map(Customer::toDto).toList();
-        List<ItemDto> itemDtos = items.stream().map(Item::toDto).toList();
+        CustomerDto customerDto = new CustomerDto();
+        ItemDto itemDto = new ItemDto();
         return OrderDto.builder()
                 .id(this.id)
-                .customers(customerDtos)
-                .items(itemDtos)
+                .customer(customerDto)
+                .item(itemDto)
                 .count(this.count)
                 .build();
     }
@@ -51,13 +49,5 @@ public class Order {
     public void update(Order order) {
         this.id = order.id;
         this.count = order.count;
-    }
-
-    public List<Customer> getCustomers() {
-        return Collections.unmodifiableList(customers); // unmodifiableList: 추가, 삭제행위 금지, 불변 뷰로 감싸서 반환
-    }
-
-    public List<Item> getItems() {
-        return Collections.unmodifiableList(items);
     }
 }

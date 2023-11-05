@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OrderDto {
     private Integer id;
-    private List<CustomerDto> customers = new ArrayList<>();
-    private List<ItemDto> items = new ArrayList<>();
+    private CustomerDto customer;
+    private ItemDto item;
     private Integer count;
 }
