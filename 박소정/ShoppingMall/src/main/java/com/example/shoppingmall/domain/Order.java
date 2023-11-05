@@ -36,11 +36,11 @@ public class Order {
     private Integer count;
 
     public OrderDto toDto() {
-        CustomerDto customerDto = new CustomerDto();
-        ItemDto itemDto = new ItemDto();
+        CustomerDto customerDto = this.customer.toDto(); // Customer 엔티티의 데이터를 추출하여 관련 Dto 객체에 설정
+        ItemDto itemDto = this.item.toDto();
         return OrderDto.builder()
                 .id(this.id)
-                .customer(customerDto)
+                .customer(customerDto) // 데이터가 OrderDto로 복사, 빈 상태로 반환되는 문제점 해결
                 .item(itemDto)
                 .count(this.count)
                 .build();
