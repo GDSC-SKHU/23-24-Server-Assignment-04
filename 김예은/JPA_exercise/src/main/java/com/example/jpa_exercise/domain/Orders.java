@@ -2,11 +2,8 @@ package com.example.jpa_exercise.domain;
 
 import com.example.jpa_exercise.dto.ItemDto;
 import com.example.jpa_exercise.dto.OrderDto;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,21 +15,21 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Orders {
 
     @Id
     @GeneratedValue
-    @Column(name = "ORDER_ID")
+    @Column(name = "ORDERS_ID")
     private Integer id;
 
-    @Column(name = "ORDER_NAME", nullable = false)
+    @Column(name = "ORDERS_NAME", nullable = false)
     private String name;
 
-    @Column(name = "ORDER_PRICE", nullable = false)
-    private Integer price;
+    @Column(name = "ORDERS_PRICE")
+    private int price;
 
-    @OneToMany(mappedBy = "order")
-    @Column(name = "ORDER_ITEMS")
+    @OneToMany
+    @JoinColumn(name ="ORDERS_ID")
     private List<Item> items = new ArrayList<>();
 
     public OrderDto toDto() {
@@ -45,10 +42,10 @@ public class Order {
                 .build();
     }
 
-    public void update(Order order) {
-        this.id = order.id;
-        this.name = order.name;
-        this.price = order.price;
+    public void update(Orders orders) {
+        this.id = orders.id;
+        this.name = orders.name;
+        this.price = orders.price;
     }
 
     public List<Item> getItems() {

@@ -1,6 +1,6 @@
 package com.example.jpa_exercise.service;
 
-import com.example.jpa_exercise.domain.Order;
+import com.example.jpa_exercise.domain.Orders;
 import com.example.jpa_exercise.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import com.example.jpa_exercise.domain.Item;
@@ -35,10 +35,8 @@ public class ItemService {
     }
 
     private Item createItemWithOrder(ItemDto itemDto) {
-        Order order = findOrderByName(itemDto.getOrderName());
         return Item.builder()
                 .name(itemDto.getName())
-                .order(order)
                 .build();
     }
 
@@ -62,11 +60,9 @@ public class ItemService {
     }
 
     private void updateItemWithOrder(ItemDto itemDto, Item item) {
-        Order order = orderService.findOrderByName(itemDto.getOrderName());
         item.update(Item.builder()
                 .id(itemDto.getId())
                 .name(itemDto.getName())
-                .order(order)
                 .build());
     }
 
@@ -90,7 +86,7 @@ public class ItemService {
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 물품 이름입니다."));
     }
 
-    private Order findOrderByName(String orderName) {
+    private Orders findOrderByName(String orderName) {
         return orderService.findOrderByName(orderName);
     }
 }

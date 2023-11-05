@@ -20,18 +20,11 @@ public class Item {
     @Column(name = "ITEM_NAME", nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORDER_ID")
-    private Order order;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "ORDERS_ID")
+//    private Orders orders;
 
     public ItemDto toDto() {
-        if (order != null) {
-            return ItemDto.builder()
-                    .id(this.id)
-                    .name(this.name)
-                    .orderName(order.getName())
-                    .build();
-        }
         return ItemDto.builder()
                 .id(this.id)
                 .name(this.name)
@@ -41,15 +34,8 @@ public class Item {
     public void update(Item item) {
         this.id = item.id;
         this.name = item.name;
-        if (order != null) {
-            changeOrder(item.order);
-            return;
-        }
-        this.order = item.order;
+
     }
 
-    public void changeOrder(Order order) {
-        this.order = order;
-        order.getItems().add(this);
-    }
+
 }
