@@ -21,9 +21,9 @@ public class CustomerController {
         return customerService.createCustomer(customerDto);
     }
 
-    @GetMapping("/customer/{name}")
-    public CustomerDto findCustomer(@PathVariable("name") String name) {
-        return customerService.findCustomerByNameAsDto(name);
+    @GetMapping("/customer/{id}")
+    public CustomerDto findCustomer(@PathVariable("id") Integer customerId) {
+        return customerService.findCustomerByIdAsDto(customerId);
     }
 
     @PutMapping("/customer")
@@ -33,6 +33,6 @@ public class CustomerController {
 
     @DeleteMapping("/customer")
     public String deleteCustomer(@RequestBody CustomerDto customerDto) {
-        return customerService.deleteCustomer(customerDto.getName());
+        return customerService.deleteCustomer(customerDto.getId());
     }
 }

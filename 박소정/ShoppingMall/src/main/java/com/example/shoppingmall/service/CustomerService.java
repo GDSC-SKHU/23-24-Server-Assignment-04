@@ -29,14 +29,14 @@ public class CustomerService {
     }
 
     // READ
-    public CustomerDto findCustomerByNameAsDto(String customername) {
-        return findCustomerByName(customername).toDto();
+    public CustomerDto findCustomerByIdAsDto(Integer customerId) {
+        return findCustomerById(customerId).toDto();
     }
 
     // UPDATE
     @Transactional
     public String updateCustomer(CustomerDto customerDto) {
-        Customer customer = findCustomerByName(customerDto.getName());
+        Customer customer = findCustomerById(customerDto.getId());
         updateCustomer(customerDto, customer);
         customerRepository.save(customer);
         return "수정 성공!";
@@ -44,7 +44,6 @@ public class CustomerService {
 
     private void updateCustomer(CustomerDto customerDto, Customer customer) {
         customer.update(Customer.builder()
-                .id(customerDto.getId())
                 .name(customerDto.getName())
                 .phoneNumber(customerDto.getPhoneNumber())
                 .address(customerDto.getAddress())
@@ -53,14 +52,14 @@ public class CustomerService {
 
     // DELETE
     @Transactional
-    public String deleteCustomer(String customername) {
-        Customer customer = findCustomerByName(customername);
+    public String deleteCustomer(Integer customerId) {
+        Customer customer = findCustomerById(customerId);
         customerRepository.delete(customer);
         return "삭제 성공!";
     }
 
-    private Customer findCustomerByName(String customername) {
-        return customerRepository.findCustomerByName(customername)
-                .orElseThrow(() -> new IllegalArgumentException("잘못된 고객 이름입니다."));
+    private Customer findCustomerById(Integer customerId) {
+        return customerRepository.findCustomerById(customerId)
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 고객ID입니다."));
     }
 }

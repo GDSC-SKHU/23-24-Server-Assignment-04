@@ -38,9 +38,9 @@ public class Customer {
     }
 
     public void update(Customer customer) {
-        this.id = customer.id;
         this.name = customer.name;
         this.phoneNumber = customer.phoneNumber;
         this.address = customer.address;
     }
+    // 고객 릴레이션에서 기본키는 바꿀 필요가 없고 바꿔서도 안 될 것 같아서 삭제
 }
