@@ -20,4 +20,9 @@ public class OrderService {
         orderRepository.save(order);
         return "저장 성공!";
     }
+
+    public Order findOrderById(Integer id) {
+        return orderRepository.findOrderById(id)
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 주문번호입니다."));
+    }
 }
