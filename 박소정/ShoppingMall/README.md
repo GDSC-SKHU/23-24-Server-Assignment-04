@@ -66,6 +66,6 @@
    - [x] item 삭제
    - [x] order 삭제
 5. controller
-- [ ] CustomerController
+- [x] CustomerController
 - [ ] ItemController
 - [ ] OrderController
