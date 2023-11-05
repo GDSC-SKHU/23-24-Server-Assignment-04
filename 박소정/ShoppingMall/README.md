@@ -60,7 +60,7 @@
    3. Update
    - [x] customer 수정
    - [x] item 수정
-   - [ ] order 수정
+   - [x] order 수정
    4. Delete
    - [x] customer 삭제
    - [x] item 삭제

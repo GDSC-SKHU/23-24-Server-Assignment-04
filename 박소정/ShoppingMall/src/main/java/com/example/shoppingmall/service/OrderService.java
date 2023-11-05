@@ -25,4 +25,15 @@ public class OrderService {
         return orderRepository.findOrderById(id)
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 주문번호입니다."));
     }
+
+    @Transactional
+    public String updateOrder(OrderDto orderDto) {
+        Order order = orderRepository.findOrderById(orderDto.getId())
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 주문번호입니다."));
+        order.update(Order.builder()
+                .id(orderDto.getId())
+                .count(orderDto.getCount())
+                .build());
+        return "수정 성공!";
+    }
 }
