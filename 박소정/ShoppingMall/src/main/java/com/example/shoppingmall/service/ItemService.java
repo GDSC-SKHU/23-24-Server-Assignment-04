@@ -13,7 +13,7 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     @Transactional
-    public String creatItem(ItemDto itemDto) {
+    public String createItem(ItemDto itemDto) {
         Item item = createItemData(itemDto);
         itemRepository.save(item);
         return "저장 성공!";
