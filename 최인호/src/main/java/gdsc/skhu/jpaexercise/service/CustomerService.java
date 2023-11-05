@@ -35,7 +35,7 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
-    // 상품 주문
+    // 상품 주
     @Transactional
     public void orderSave(OrderSaveReqDto orderSaveReqDto) {
         Customer customer = customerRepository.findById(orderSaveReqDto.getCustomerId())

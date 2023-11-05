@@ -25,9 +25,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
-
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+   @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
