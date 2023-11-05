@@ -64,7 +64,7 @@
    4. Delete
    - [x] customer 삭제
    - [x] item 삭제
-   - [ ] order 삭제
+   - [x] order 삭제
 5. controller
 - [ ] CustomerController
 - [ ] ItemController

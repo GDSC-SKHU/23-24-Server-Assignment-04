@@ -36,4 +36,11 @@ public class OrderService {
                 .build());
         return "수정 성공!";
     }
+
+    @Transactional
+    public String deleteOrder(OrderDto orderDto) {
+        Order order = findOrderById(orderDto.getId());
+        orderRepository.delete(order);
+        return "삭제 성공!";
+    }
 }
