@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Integer> {
-    Optional<Item> findItemByName(String itemname);
+    Optional<Item> findItemById(Integer itemId);
 }

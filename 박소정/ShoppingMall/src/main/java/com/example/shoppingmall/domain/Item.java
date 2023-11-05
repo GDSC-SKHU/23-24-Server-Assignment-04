@@ -34,7 +34,6 @@ public class Item {
     }
 
     public void update(Item item) {
-        this.id = item.id;
         this.name = item.name;
         this.cost = item.cost;
     }

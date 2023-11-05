@@ -21,9 +21,9 @@ public class ItemController {
         return itemService.createItem(itemDto);
     }
 
-    @GetMapping("/item/{name}")
-    public ItemDto findItem(@PathVariable("name") String name) {
-        return itemService.findItemByNameAsDto(name);
+    @GetMapping("/item/{id}")
+    public ItemDto findItem(@PathVariable("id") Integer itemId) {
+        return itemService.findItemByIdAsDto(itemId);
     }
 
     @PutMapping("/item")
@@ -33,6 +33,6 @@ public class ItemController {
 
     @DeleteMapping("/item")
     public String deleteItem(@RequestBody ItemDto itemDto) {
-        return itemService.deleteItem(itemDto.getName());
+        return itemService.deleteItem(itemDto.getId());
     }
 }

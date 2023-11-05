@@ -26,13 +26,13 @@ public class ItemService {
                 .build();
     }
 
-    public ItemDto findItemByNameAsDto(String itemname) {
-        return findItemByName(itemname).toDto();
+    public ItemDto findItemByIdAsDto(Integer itemId) {
+        return findItemById(itemId).toDto();
     }
 
     @Transactional
     public String updateItem(ItemDto itemDto) {
-        Item item = findItemByName(itemDto.getName());
+        Item item = findItemById(itemDto.getId());
         updateItem(itemDto, item);
         itemRepository.save(item);
         return "수정 성공!";
@@ -40,21 +40,20 @@ public class ItemService {
 
     private void updateItem(ItemDto itemDto, Item item) {
         item.update(Item.builder()
-                .id(itemDto.getId())
                 .name(itemDto.getName())
                 .cost(itemDto.getCost())
                 .build());
     }
 
     @Transactional
-    public String deleteItem(String itemname) {
-        Item item = findItemByName(itemname);
+    public String deleteItem(Integer itemId) {
+        Item item = findItemById(itemId);
         itemRepository.delete(item);
         return "삭제 성공!";
     }
 
-    private Item findItemByName(String itemname) {
-        return itemRepository.findItemByName(itemname)
-                .orElseThrow(() -> new IllegalArgumentException("잘못된 상품명입니다."));
+    private Item findItemById(Integer itemId) {
+        return itemRepository.findItemById(itemId)
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 상품ID입니다."));
     }
 }
