@@ -1,10 +1,10 @@
 package com.gdsc.ordersystem.service;
 
-import com.gdsc.ordersystem.controller.request.UserCreateRequestDto;
-import com.gdsc.ordersystem.controller.request.UserNameUpdateDto;
-import com.gdsc.ordersystem.controller.request.UserTypeUpdateDto;
-import com.gdsc.ordersystem.controller.response.UserDeleteResponseDto;
-import com.gdsc.ordersystem.controller.response.UserResponseDto;
+import com.gdsc.ordersystem.controller.request.user.UserCreateRequestDto;
+import com.gdsc.ordersystem.controller.request.user.UserNameUpdateDto;
+import com.gdsc.ordersystem.controller.request.user.UserTypeUpdateDto;
+import com.gdsc.ordersystem.controller.response.user.UserDeleteResponseDto;
+import com.gdsc.ordersystem.controller.response.user.UserResponseDto;
 import com.gdsc.ordersystem.domain.user.User;
 import com.gdsc.ordersystem.exception.ErrorCode;
 import com.gdsc.ordersystem.exception.model.BadRequestException;
@@ -30,11 +30,7 @@ public class UserService {
             throw new BadRequestException(ErrorCode.ALREADY_EXIST_EMAIL_EXCEPTION, ErrorCode.ALREADY_EXIST_EMAIL_EXCEPTION.getMessage());
         }
 
-        User user = User.builder()
-                .name(requestDto.getName())
-                .email(requestDto.getEmail())
-                .userType(requestDto.getUserType())
-                .build();
+        User user = requestDto.toEntity();
 
         userRepository.save(user);
 

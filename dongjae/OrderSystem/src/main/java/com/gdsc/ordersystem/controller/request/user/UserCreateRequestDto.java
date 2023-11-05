@@ -4,12 +4,14 @@ import com.gdsc.ordersystem.domain.user.User;
 import com.gdsc.ordersystem.domain.user.UserType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserCreateRequestDto {
 
     @NotBlank
@@ -18,13 +20,6 @@ public class UserCreateRequestDto {
     private String email;
     @NotNull
     private UserType userType;
-
-    @Builder
-    public UserCreateRequestDto(String name, String email, UserType userType) {
-        this.name = name;
-        this.email = email;
-        this.userType = userType;
-    }
 
     public User toEntity() {
         return User.builder()
