@@ -17,7 +17,7 @@ public class CustomerService {
     public String createCustomer(CustomerDto customerDto) {
         Customer customer = createCustomerData(customerDto);
         customerRepository.save(customer);
-        return "저장 성공";
+        return "저장 성공!";
     }
 
     private Customer createCustomerData(CustomerDto customerDto) {
@@ -32,7 +32,25 @@ public class CustomerService {
     public CustomerDto findCustomerByNameAsDto(String customername) {
         return findCustomerByName(customername).toDto();
     }
-    
+
+    // UPDATE
+    @Transactional
+    public String updateCustomer(CustomerDto customerDto) {
+        Customer customer = findCustomerByName(customerDto.getName());
+        updateCustomer(customerDto, customer);
+        customerRepository.save(customer);
+        return "수정 성공!";
+    }
+
+    private void updateCustomer(CustomerDto customerDto, Customer customer) {
+        customer.update(Customer.builder()
+                .id(customerDto.getId())
+                .name(customerDto.getName())
+                .phoneNumber(customerDto.getPhoneNumber())
+                .address(customerDto.getAddress())
+                .build());
+    }
+
     private Customer findCustomerByName(String customername) {
         return customerRepository.findCustomerByName(customername)
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 고객 이름입니다."));

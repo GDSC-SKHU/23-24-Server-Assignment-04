@@ -58,7 +58,7 @@
    - [ ] item 조회
    - [ ] order 조회
    3. Update
-   - [ ] customer 수정
+   - [x] customer 수정
    - [ ] item 수정
    - [ ] order 수정
    4. Delete
