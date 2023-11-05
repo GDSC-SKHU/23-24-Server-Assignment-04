@@ -14,11 +14,11 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Product extends BaseEntity {
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true)
     private String name;
 
     @Column(nullable = false)
-    private int unitPrice;
+    private Long unitPrice;
 
     @JsonIgnore
     @ToString.Exclude
@@ -27,9 +27,16 @@ public class Product extends BaseEntity {
     List<OrderDetail> orderDetails;
 
     @Builder
-    public Product(String name, int unitPrice) {
+    public Product(String name, Long unitPrice) {
         this.name = name;
         this.unitPrice = unitPrice;
     }
 
+    public void updateName(String name) {
+        this.name = name;
+    }
+
+    public void updateUnitPrice(Long unitPrice) {
+        this.unitPrice = unitPrice;
+    }
 }
