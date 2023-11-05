@@ -1,5 +1,7 @@
-package gdsc.skhu.jpaexercise.dto;
+package com.gdsc.productapi_v2.dto;
 
+import com.gdsc.productapi_v2.domain.Product;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberDto {
+public class ProductDTO {
     private Integer id;
     private String name;
-    private Integer age;
-    private String teamName;
+    private Integer count;
+    private String consumer;
 }
