@@ -1,8 +1,8 @@
 package com.gdsc.ordersystem.service;
 
 import com.gdsc.ordersystem.controller.request.user.UserCreateRequestDto;
-import com.gdsc.ordersystem.controller.request.user.UserNameUpdateDto;
-import com.gdsc.ordersystem.controller.request.user.UserTypeUpdateDto;
+import com.gdsc.ordersystem.controller.request.user.UserNameUpdateRequestDto;
+import com.gdsc.ordersystem.controller.request.user.UserTypeUpdateRequestDto;
 import com.gdsc.ordersystem.controller.response.user.UserDeleteResponseDto;
 import com.gdsc.ordersystem.controller.response.user.UserResponseDto;
 import com.gdsc.ordersystem.domain.user.User;
@@ -66,7 +66,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserResponseDto updateUserName(Long id, UserNameUpdateDto requestDto) {
+    public UserResponseDto updateUserName(Long id, UserNameUpdateRequestDto requestDto) {
         User user = userRepository.findById(id).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_USER_EXCEPTION, ErrorCode.NOT_FOUND_USER_EXCEPTION.getMessage())
         );
@@ -79,7 +79,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserResponseDto updateUserType(Long id, UserTypeUpdateDto requestDto) {
+    public UserResponseDto updateUserType(Long id, UserTypeUpdateRequestDto requestDto) {
         User user = userRepository.findById(id).orElseThrow(
                 () -> new NotFoundException(ErrorCode.NOT_FOUND_USER_EXCEPTION, ErrorCode.NOT_FOUND_USER_EXCEPTION.getMessage())
         );

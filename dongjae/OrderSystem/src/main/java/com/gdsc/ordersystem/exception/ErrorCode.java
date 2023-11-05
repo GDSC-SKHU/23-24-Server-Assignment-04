@@ -21,6 +21,7 @@ public enum ErrorCode {
 
     // 409 Conflict
     ALREADY_EXIST_USER_EXCEPTION(HttpStatus.CONFLICT, "이미 존재하는 유저입니다"),
+    ALREADY_EXIST_PRODUCT_EXCEPTION(HttpStatus.CONFLICT, "이미 존재하는 상품입니다"),
     ALREADY_EXIST_EMAIL_EXCEPTION(HttpStatus.CONFLICT, "이미 존재하는 이메일입니다"),
 
     // 500 Internal Server Exception

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserTypeUpdateDto {
+public class UserTypeUpdateRequestDto {
     @NotNull
     private UserType userType;
 }

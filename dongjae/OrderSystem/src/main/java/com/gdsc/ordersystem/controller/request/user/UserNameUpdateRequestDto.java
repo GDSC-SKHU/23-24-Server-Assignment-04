@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserNameUpdateDto {
+public class UserNameUpdateRequestDto {
     @NotBlank
     private String name;
 }

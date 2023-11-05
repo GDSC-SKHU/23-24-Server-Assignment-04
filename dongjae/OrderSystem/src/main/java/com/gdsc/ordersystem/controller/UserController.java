@@ -2,8 +2,8 @@ package com.gdsc.ordersystem.controller;
 
 import com.gdsc.ordersystem.common.dto.ApiResponse;
 import com.gdsc.ordersystem.controller.request.user.UserCreateRequestDto;
-import com.gdsc.ordersystem.controller.request.user.UserNameUpdateDto;
-import com.gdsc.ordersystem.controller.request.user.UserTypeUpdateDto;
+import com.gdsc.ordersystem.controller.request.user.UserNameUpdateRequestDto;
+import com.gdsc.ordersystem.controller.request.user.UserTypeUpdateRequestDto;
 import com.gdsc.ordersystem.controller.response.user.UserDeleteResponseDto;
 import com.gdsc.ordersystem.controller.response.user.UserResponseDto;
 import com.gdsc.ordersystem.exception.SuccessCode;
@@ -45,14 +45,14 @@ public class UserController {
 
     @PatchMapping("/name/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<UserResponseDto> updateUserName(@PathVariable final Long id, @RequestBody @Valid final UserNameUpdateDto requestDto) {
+    public ApiResponse<UserResponseDto> updateUserName(@PathVariable final Long id, @RequestBody @Valid final UserNameUpdateRequestDto requestDto) {
         final UserResponseDto data = userService.updateUserName(id, requestDto);
         return ApiResponse.success(SuccessCode.UPDATE_CUSTOMER_SUCCESS, data);
     }
 
     @PatchMapping("/type/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<UserResponseDto> updateUserType(@PathVariable final Long id, @RequestBody @Valid final UserTypeUpdateDto requestDto) {
+    public ApiResponse<UserResponseDto> updateUserType(@PathVariable final Long id, @RequestBody @Valid final UserTypeUpdateRequestDto requestDto) {
         final UserResponseDto data = userService.updateUserType(id, requestDto);
         return ApiResponse.success(SuccessCode.UPDATE_CUSTOMER_SUCCESS, data);
     }
