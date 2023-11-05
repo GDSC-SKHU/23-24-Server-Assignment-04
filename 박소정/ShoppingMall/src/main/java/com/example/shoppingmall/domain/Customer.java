@@ -22,10 +22,10 @@ public class Customer {
     @Column(name = "CUSTOMER_NAME", nullable = false) // DDL 생성 시 null 값의 허용 여부 결정, false로 설정 시 not null 제약조건
     private String name;
 
-    @Column(name = "CUSTOMER_NAME", nullable = false)
+    @Column(name = "CUSTOMER_PHONE", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "CUSTOMER_NAME", nullable = false)
+    @Column(name = "CUSTOMER_ADDRESS", nullable = false)
     private String address;
 
     public CustomerDto toDto() {
