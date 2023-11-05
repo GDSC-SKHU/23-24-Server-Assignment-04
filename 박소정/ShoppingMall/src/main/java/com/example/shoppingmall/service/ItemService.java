@@ -1,8 +1,6 @@
 package com.example.shoppingmall.service;
 
-import com.example.shoppingmall.domain.Customer;
 import com.example.shoppingmall.domain.Item;
-import com.example.shoppingmall.dto.CustomerDto;
 import com.example.shoppingmall.dto.ItemDto;
 import com.example.shoppingmall.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +44,13 @@ public class ItemService {
                 .name(itemDto.getName())
                 .cost(itemDto.getCost())
                 .build());
+    }
+
+    @Transactional
+    public String deleteItem(String itemname) {
+        Item item = findItemByName(itemname);
+        itemRepository.delete(item);
+        return "삭제 성공!";
     }
 
     private Item findItemByName(String itemname) {
