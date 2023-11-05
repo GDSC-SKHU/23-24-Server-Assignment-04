@@ -51,6 +51,14 @@ public class CustomerService {
                 .build());
     }
 
+    // DELETE
+    @Transactional
+    public String deleteCustomer(String customername) {
+        Customer customer = findCustomerByName(customername);
+        customerRepository.delete(customer);
+        return "삭제 성공!";
+    }
+
     private Customer findCustomerByName(String customername) {
         return customerRepository.findCustomerByName(customername)
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 고객 이름입니다."));

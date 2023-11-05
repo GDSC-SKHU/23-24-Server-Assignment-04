@@ -62,7 +62,7 @@
    - [ ] item 수정
    - [ ] order 수정
    4. Delete
-   - [ ] customer 삭제
+   - [x] customer 삭제
    - [ ] item 삭제
    - [ ] order 삭제
 5. controller
