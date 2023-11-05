@@ -51,7 +51,7 @@
 4. service
    1. Create
    - [x] customer 추가
-   - [ ] item 추가
+   - [x] item 추가
    - [ ] order 추가
    2. Read
    - [x] customer 조회
