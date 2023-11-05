@@ -1,6 +1,8 @@
 package com.example.shoppingmall.service;
 
+import com.example.shoppingmall.domain.Customer;
 import com.example.shoppingmall.domain.Item;
+import com.example.shoppingmall.dto.CustomerDto;
 import com.example.shoppingmall.dto.ItemDto;
 import com.example.shoppingmall.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,22 @@ public class ItemService {
 
     public ItemDto findItemByNameAsDto(String itemname) {
         return findItemByName(itemname).toDto();
+    }
+
+    @Transactional
+    public String updateItem(ItemDto itemDto) {
+        Item item = findItemByName(itemDto.getName());
+        updateItem(itemDto, item);
+        itemRepository.save(item);
+        return "수정 성공!";
+    }
+
+    private void updateItem(ItemDto itemDto, Item item) {
+        item.update(Item.builder()
+                .id(itemDto.getId())
+                .name(itemDto.getName())
+                .cost(itemDto.getCost())
+                .build());
     }
 
     private Item findItemByName(String itemname) {
