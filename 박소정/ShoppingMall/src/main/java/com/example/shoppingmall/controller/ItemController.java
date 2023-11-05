@@ -9,29 +9,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("item")
 public class ItemController {
     private final ItemService itemService;
 
-    @PostMapping("/item/new")
+    @PostMapping("new")
     public String createItem(@RequestBody ItemDto itemDto) {
         return itemService.createItem(itemDto);
     }
 
-    @GetMapping("/item/{id}")
+    @GetMapping("{id}")
     public ItemDto findItem(@PathVariable("id") Integer itemId) {
         return itemService.findItemByIdAsDto(itemId);
     }
 
-    @PutMapping("/item")
+    @PutMapping("")
     public String updateItem(@RequestBody ItemDto itemDto) {
         return itemService.updateItem(itemDto);
     }
 
-    @DeleteMapping("/item")
+    @DeleteMapping("")
     public String deleteItem(@RequestBody ItemDto itemDto) {
         return itemService.deleteItem(itemDto.getId());
     }

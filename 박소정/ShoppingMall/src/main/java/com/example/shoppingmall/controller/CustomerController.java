@@ -9,29 +9,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("customer")
 public class CustomerController {
     private final CustomerService customerService;
 
-    @PostMapping("/customer/new")
+    @PostMapping("new")
     public String createCustomer(@RequestBody CustomerDto customerDto) {
         return customerService.createCustomer(customerDto);
     }
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("{id}")
     public CustomerDto findCustomer(@PathVariable("id") Integer customerId) {
         return customerService.findCustomerByIdAsDto(customerId);
     }
 
-    @PutMapping("/customer")
+    @PutMapping("")
     public String updateCustomer(@RequestBody CustomerDto customerDto) {
         return customerService.updateCustomer(customerDto);
     }
 
-    @DeleteMapping("/customer")
+    @DeleteMapping("")
     public String deleteCustomer(@RequestBody CustomerDto customerDto) {
         return customerService.deleteCustomer(customerDto.getId());
     }
