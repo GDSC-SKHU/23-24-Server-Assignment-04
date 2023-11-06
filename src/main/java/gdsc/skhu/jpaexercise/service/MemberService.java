@@ -13,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
     private final MemberRepository memberRepository;
     private final TeamService teamService;
-
-    // CREATE
     @Transactional
     public String createMember(MemberDto memberDto) {
         if (memberDto.getTeamName() == null) {
@@ -43,12 +41,11 @@ public class MemberService {
                 .build();
     }
 
-    // READ
     public MemberDto findMemberByNameAsDto(String username) {
         return findMemberByName(username).toDto();
     }
 
-    // UPDATE
+
     @Transactional
     public String updateMember(MemberDto memberDto) {
         Member member = findMemberByName(memberDto.getName());
@@ -80,7 +77,6 @@ public class MemberService {
                 .build());
     }
 
-    // DELETE
     @Transactional
     public String deleteMember(String username) {
         Member member = findMemberByName(username);
