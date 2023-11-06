@@ -41,11 +41,11 @@ public class Customer {
         this.age = customer.age;
     }
 
-    public void setName(String name) {
+    public void updateName(String name) {
         this.name = name;
     }
 
-    public void setAge(Integer age) {
+    public void updateAge(Integer age) {
         if(age<0){
             throw new IllegalArgumentException("나이는 0보다 작을 수 없습니다.");
         }

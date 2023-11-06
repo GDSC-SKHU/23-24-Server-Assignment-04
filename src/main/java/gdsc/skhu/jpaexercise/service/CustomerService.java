@@ -42,8 +42,8 @@ public class CustomerService {
     public String updateCustomer(CustomerDto customerDto){
         Customer customer = customerRepository.findById(customerDto.getId()).orElseThrow(()
                 -> new IllegalArgumentException("해당 고객ID가 없습니다."));
-        customer.setName(customerDto.getName());
-        customer.setAge(customerDto.getAge());
+        customer.updateName(customerDto.getName());
+        customer.updateAge(customerDto.getAge());
         return "수정됨";
     }
 
