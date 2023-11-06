@@ -1,8 +1,14 @@
 package gdsc.skhu.jpaexercise.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomerDto {
+    private Integer id;
+    private String name;
+    private Integer age;
 
 }
