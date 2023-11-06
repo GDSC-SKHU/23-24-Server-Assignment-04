@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class OrderDetail extends BaseEntity {
 
     @Column(nullable = false)
-    private int quantity;
+    private Long quantity;
 
     @ManyToOne
     @JoinColumn(name = "orderId")
@@ -26,9 +26,14 @@ public class OrderDetail extends BaseEntity {
     private Product product;
 
     @Builder
-    public OrderDetail(int quantity, Order order, Product product) {
+    public OrderDetail(Long quantity, Product product, Order order) {
         this.quantity = quantity;
         this.order = order;
         this.product = product;
     }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
 }

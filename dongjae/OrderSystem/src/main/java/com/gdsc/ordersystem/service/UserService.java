@@ -1,10 +1,10 @@
 package com.gdsc.ordersystem.service;
 
-import com.gdsc.ordersystem.controller.request.user.UserCreateRequestDto;
-import com.gdsc.ordersystem.controller.request.user.UserNameUpdateRequestDto;
-import com.gdsc.ordersystem.controller.request.user.UserTypeUpdateRequestDto;
-import com.gdsc.ordersystem.controller.response.user.UserDeleteResponseDto;
-import com.gdsc.ordersystem.controller.response.user.UserResponseDto;
+import com.gdsc.ordersystem.controller.dto.request.user.UserCreateRequestDto;
+import com.gdsc.ordersystem.controller.dto.request.user.UserNameUpdateRequestDto;
+import com.gdsc.ordersystem.controller.dto.request.user.UserTypeUpdateRequestDto;
+import com.gdsc.ordersystem.controller.dto.response.user.UserDeleteResponseDto;
+import com.gdsc.ordersystem.controller.dto.response.user.UserResponseDto;
 import com.gdsc.ordersystem.domain.user.User;
 import com.gdsc.ordersystem.exception.ErrorCode;
 import com.gdsc.ordersystem.exception.model.BadRequestException;

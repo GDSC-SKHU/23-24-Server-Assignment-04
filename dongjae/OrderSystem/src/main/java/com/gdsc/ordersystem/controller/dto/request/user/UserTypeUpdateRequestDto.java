@@ -1,4 +1,4 @@
-package com.gdsc.ordersystem.controller.request.user;
+package com.gdsc.ordersystem.controller.dto.request.user;
 
 import com.gdsc.ordersystem.domain.user.UserType;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.gdsc.ordersystem.controller.request.product;
+package com.gdsc.ordersystem.controller.dto.request.product;
 
 import com.gdsc.ordersystem.domain.product.Product;
 import com.gdsc.ordersystem.domain.user.User;
@@ -16,7 +16,7 @@ public class ProductCreateRequestDto {
 
     @NotBlank
     private String name;
-    @NotBlank
+    @NotNull
     private Long unitPrice;
 
     public Product toEntity() {

@@ -1,4 +1,4 @@
-package com.gdsc.ordersystem.controller.request.product;
+package com.gdsc.ordersystem.controller.dto.request.product;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.gdsc.ordersystem.controller.response.user;
+package com.gdsc.ordersystem.controller.dto.response.user;
 
 import com.gdsc.ordersystem.domain.user.UserType;
 import lombok.AccessLevel;

@@ -1,6 +1,5 @@
-package com.gdsc.ordersystem.controller.response.product;
+package com.gdsc.ordersystem.controller.dto.response.product;
 
-import com.gdsc.ordersystem.controller.response.user.UserDeleteResponseDto;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

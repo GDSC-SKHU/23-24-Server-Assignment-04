@@ -1,11 +1,11 @@
 package com.gdsc.ordersystem.controller;
 
 import com.gdsc.ordersystem.common.dto.ApiResponse;
-import com.gdsc.ordersystem.controller.request.product.ProductCreateRequestDto;
-import com.gdsc.ordersystem.controller.request.product.ProductNameUpdateRequestDto;
-import com.gdsc.ordersystem.controller.request.product.ProductUnitPriceUpdateRequestDto;
-import com.gdsc.ordersystem.controller.response.product.ProductDeleteResponseDto;
-import com.gdsc.ordersystem.controller.response.product.ProductResponseDto;
+import com.gdsc.ordersystem.controller.dto.request.product.ProductCreateRequestDto;
+import com.gdsc.ordersystem.controller.dto.request.product.ProductNameUpdateRequestDto;
+import com.gdsc.ordersystem.controller.dto.request.product.ProductUnitPriceUpdateRequestDto;
+import com.gdsc.ordersystem.controller.dto.response.product.ProductDeleteResponseDto;
+import com.gdsc.ordersystem.controller.dto.response.product.ProductResponseDto;
 import com.gdsc.ordersystem.exception.SuccessCode;
 import com.gdsc.ordersystem.service.ProductService;
 import jakarta.validation.Valid;
@@ -24,8 +24,8 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ApiResponse<com.gdsc.ordersystem.controller.response.product.ProductResponseDto> createUser(@RequestBody @Valid final ProductCreateRequestDto requestDto) {
-        final com.gdsc.ordersystem.controller.response.product.ProductResponseDto data = productService.save(requestDto);
+    public ApiResponse<ProductResponseDto> createProduct(@RequestBody @Valid final ProductCreateRequestDto requestDto) {
+        final ProductResponseDto data = productService.save(requestDto);
         return ApiResponse.success(SuccessCode.CREATE_PRODUCT_SUCCESS, data);
     }
 
@@ -58,7 +58,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ApiResponse<ProductDeleteResponseDto> deleteProduct(@PathVariable final Long id) {
         final ProductDeleteResponseDto data = productService.deleteProduct(id);
         return ApiResponse.success(SuccessCode.DELETE_SUCCESS, data);

@@ -1,4 +1,4 @@
-package com.gdsc.ordersystem.controller.response.product;
+package com.gdsc.ordersystem.controller.dto.response.product;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

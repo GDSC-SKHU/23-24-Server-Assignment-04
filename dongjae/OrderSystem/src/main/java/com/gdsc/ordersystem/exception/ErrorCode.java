@@ -17,7 +17,7 @@ public enum ErrorCode {
 
     // 404 NOT FOUND
     NOT_FOUND_USER_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 유저입니다."),
-    NOT_FOUND_PRODUCT_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 유저입니다."),
+    NOT_FOUND_PRODUCT_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 상품입니다."),
 
     // 409 Conflict
     ALREADY_EXIST_USER_EXCEPTION(HttpStatus.CONFLICT, "이미 존재하는 유저입니다"),
