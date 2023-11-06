@@ -24,7 +24,7 @@ public class CustomerService {
         return "저장됨";
     }
 
-    @Transactional
+
     public Customer findCustomerByName(String name) {
         return customerRepository.findByName(name).orElseThrow(()
                 -> new IllegalArgumentException("해당 고객이름이 없습니다."));
