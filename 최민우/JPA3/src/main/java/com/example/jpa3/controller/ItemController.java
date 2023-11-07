@@ -24,13 +24,13 @@ public class ItemController {
     }
 
     @PostMapping("/item/new")
-    public  String createItem(@RequestBody ItemDto itemDto){
-        return  itemService.createItem((itemDto));
+    public String createItem(@RequestBody ItemDto itemDto){
+        return itemService.createItem((itemDto));
     }
 
     @PutMapping("/item")
     public String updateItem(@RequestBody ItemDto itemDto){
-        return  itemService.updateItem(itemDto);
+        return itemService.updateItem(itemDto);
     }
 
     @DeleteMapping("/item")
