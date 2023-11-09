@@ -44,6 +44,7 @@ public class CustomerService {
 
     private void updateCustomer(CustomerDto customerDto, Customer customer) {
         customer.update(Customer.builder()
+                .id(customerDto.getId())
                 .name(customerDto.getName())
                 .phoneNumber(customerDto.getPhoneNumber())
                 .address(customerDto.getAddress())

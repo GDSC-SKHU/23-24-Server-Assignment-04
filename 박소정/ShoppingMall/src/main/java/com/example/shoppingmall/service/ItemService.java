@@ -40,6 +40,7 @@ public class ItemService {
 
     private void updateItem(ItemDto itemDto, Item item) {
         item.update(Item.builder()
+                .id(itemDto.getId())
                 .name(itemDto.getName())
                 .cost(itemDto.getCost())
                 .build());
