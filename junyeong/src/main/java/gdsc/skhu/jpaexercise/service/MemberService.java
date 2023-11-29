@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
     private final MemberRepository memberRepository;
     private final TeamService teamService;
+
     @Transactional
     public String createMember(MemberDto memberDto) {
         if (memberDto.getTeamName() == null) {
