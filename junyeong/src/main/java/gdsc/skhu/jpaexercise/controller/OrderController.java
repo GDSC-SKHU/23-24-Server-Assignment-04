@@ -17,7 +17,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping("/order")
-    public List<Order> orderList() {
+    public List<OrderDto> orderList() {
         return orderService.orderList();
     }
 

@@ -30,8 +30,8 @@ public class ItemService {
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 물건 이름입니다."));
     }
 
-    public List<Item> itemList() {
-        return itemRepository.findAll();
+    public List<ItemDto> itemList() {
+        return itemRepository.findAll().stream().map(Item::toDto).toList();
     }
 
     @Transactional

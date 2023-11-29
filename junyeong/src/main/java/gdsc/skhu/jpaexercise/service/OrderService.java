@@ -55,7 +55,7 @@ public class OrderService {
         return findOrderById(id).toDto();
     }
 
-    public List<Order> orderList() {
-        return ordersRepository.findAll();
+    public List<OrderDto> orderList() {
+        return ordersRepository.findAll().stream().map(Order::toDto).toList();
     }
 }

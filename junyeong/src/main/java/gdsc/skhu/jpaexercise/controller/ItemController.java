@@ -14,7 +14,7 @@ public class ItemController {
     private final ItemService itemService;
 
     @GetMapping("/item")
-    public List<Item> itemList() {
+    public List<ItemDto> itemList() {
         return itemService.itemList();
     }
 
@@ -26,6 +26,10 @@ public class ItemController {
     @PostMapping("/item/new")
     public String createItem(@RequestBody ItemDto itemDto) {
         return itemService.createItem(itemDto);
+    }
+    @PutMapping("/item")
+    public String updateItem(@RequestBody ItemDto itemDto) {
+        return itemService.updateItem(itemDto);
     }
 
     @DeleteMapping("/item")

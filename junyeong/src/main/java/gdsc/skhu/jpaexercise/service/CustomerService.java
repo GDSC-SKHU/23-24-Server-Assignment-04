@@ -34,8 +34,8 @@ public class CustomerService {
         return customerRepository.findById(id).orElseThrow(()
                 -> new IllegalArgumentException("해당 고객ID가 없습니다."));
     }
-    public List<Customer> customerList(){
-        return customerRepository.findAll();
+    public List<CustomerDto> customerList(){
+        return customerRepository.findAll().stream().map(Customer::toDto).toList();
     }
 
     @Transactional
